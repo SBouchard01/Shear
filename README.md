@@ -1,5 +1,4 @@
 ![Last release](https://img.shields.io/github/v/release/SBouchard01/Shears)
-![Size](https://img.shields.io/github/size/SBouchard01/Shears/Shears.exe)
 ![total lines](https://img.shields.io/tokei/lines/github/SBouchard01/Shears?color=green)
 ![Main requirement](https://img.shields.io/static/v1?label=Requires&message=FFMPEG&color=red)
 
