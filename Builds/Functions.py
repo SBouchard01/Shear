@@ -1,4 +1,19 @@
-import re
+import os
+import sys
+import re # Regular expressions
+import tkinter as tk # Graphical interface
+from tkinter import messagebox
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        # If not running from PyInstaller, use the current directory
+        base_path = os.path.abspath(".") 
+ 
+    return os.path.join(base_path, relative_path)
 
 def timecode_to_ms(timecode):
     """Converts a timecode to milliseconds
@@ -84,15 +99,20 @@ def parse_timecodes(L: list = input) -> list:
         if t == None:
             continue
         else :
-            t = t.group()
+            t = t.group(0) # Extracting the first timecode found from the regular expression object
             T.remove(t) # Removing the timecode from the list of words
             s = " ".join(T) # Joining the remaining words to form the title
             
+            #Reformat the timecode to HH:MM:SS if it is MM:SS
+            if len(t.split(":")) == 2:
+                t = "00:" + t 
+            
             # Appending the timecode and title to the lists
             times.append(t)
-            titles.append(escape_characters(s)) # Escaping the characters that could cause problems with ffmpeg
+            titles.append(s)
+            #titles.append(escape_characters(s)) # Escaping the characters that could cause problems with ffmpeg (Not needed anymore)
             
-    # Checks if the number of timecodes and titles are the same
+    # Checks if the number of timecodes and titles are the same (they should be given the construction of the function)
     if len(times) != len(titles):
         raise ValueError("The number of timecodes and titles are not the same")
         
@@ -106,8 +126,7 @@ def Error_Window(title, message):
         title (str): The title of the window
         message (str): The message to display
     """
-    import tkinter as tk
-    from tkinter import messagebox
+    
     root = tk.Tk()
     root.withdraw()
     messagebox.showerror(title, message)
@@ -120,9 +139,14 @@ def Info_Window(title, message):
         title (str): The title of the window
         message (str): The message to display
     """
-    import tkinter as tk
-    from tkinter import messagebox
+    
     root = tk.Tk()
     root.withdraw()
     messagebox.showinfo(title, message)
     root.destroy()
+    
+
+        
+        
+        
+
