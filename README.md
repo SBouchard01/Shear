@@ -1,9 +1,10 @@
 ![Last release](https://img.shields.io/github/v/release/SBouchard01/Shears)
+![Size](https://img.shields.io/github/languages/code-size/SBouchard01/Shears)
 ![total lines](https://img.shields.io/tokei/lines/github/SBouchard01/Shears?color=green)
 ![Main requirement](https://img.shields.io/static/v1?label=Requires&message=FFMPEG&color=red)
 
 
-# Shear
+# Shears
 
 Shears is a simple tool for adding chapters to a video file. It is designed to be used with [FFmpeg](https://ffmpeg.org/), and is written in Python 3.
 
