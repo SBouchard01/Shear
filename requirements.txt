@@ -1,5 +1,4 @@
-os
-subprocess
-re
-tkinter
-auto-py-to-exe
+auto-py-to-exe>=2.23.1
+pyinstaller>=5.6.1
+customtkinter>=4.6.3
+langdetect>=1.0.9
