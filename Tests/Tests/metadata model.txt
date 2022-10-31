@@ -1,0 +1,27 @@
+;FFMETADATA1
+title=Adding Chapters using FFMPEG
+artist=Terry Butler
+
+[CHAPTER]
+TIMEBASE=1/1000
+# Chapter 1 starts at 00:00
+START=0
+# Chapter 1 ends at 02:30 (minus 1 millisecond)
+END=149999
+title=Chapter 1
+
+[CHAPTER]
+TIMEBASE=1/1000
+# Chapter 2 starts at 02:30
+START=150000
+# Chapter 2 ends at 04:45 (minus 1 millisecond)
+END=284999
+title=Chapter 2
+
+[CHAPTER]
+TIMEBASE=1/1000
+# Chapter 3 starts at 04:45
+START=285000
+# Chapter 3 / end of file ends at 06:00 (minus 1 millisecond)
+END=360000
+title=Chapter 3
